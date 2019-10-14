@@ -46,7 +46,7 @@ export default {
   methods: {
     searchMovie() {
       this.isSearching = true;
-      axios.get(`http://www.omdbapi.com/?t=${this.movieQuery}&apikey=${this.api}`)
+      axios.get(`https://www.omdbapi.com/?t=${this.movieQuery}&apikey=${this.api}`)
         .then((response) => {
           this.apiResponse = response.data;
           if (this.apiResponse.Response === 'True') {
