@@ -53,7 +53,7 @@ export default {
   },
   data() {
     return {
-      APIKEY: process.env.VUE_APP_APIKEY,
+      APIKEY: '79fcb6d0',
       appName: 'Movie Finder',
       movies: [],
     };
