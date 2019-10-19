@@ -21,9 +21,8 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 import ErrorToast from './ErrorToast.vue';
+import FindService from '../services/FindService';
 
 export default {
   name: 'Search',
@@ -32,7 +31,6 @@ export default {
   },
   props: {
     movies: Object,
-    api: String,
   },
   data() {
     return {
@@ -44,27 +42,11 @@ export default {
     };
   },
   methods: {
-    searchMovie() {
-      this.isSearching = true;
-      axios.get(`https://www.omdbapi.com/?t=${this.movieQuery}&apikey=${this.api}`)
-        .then((response) => {
-          this.apiResponse = response.data;
-          if (this.apiResponse.Response === 'True') {
-            this.$emit('changeMovies', this.apiResponse);
-          } else {
-            this.errorSearching = true;
-          }
-        })
-        .catch((e) => {
-          this.errors = e.message;
-        })
-        .finally(() => {
-          this.isSearching = false;
-          setTimeout(() => {
-            this.errorSearching = false;
-            this.errors = '';
-          }, 1500);
-        });
+    async searchMovie() {
+      this.apiResponse = await FindService.findMovie({
+        query: this.movieQuery,
+      });
+      this.$emit('changeMovies', this.apiResponse.data);
     },
   },
   computed: {

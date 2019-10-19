@@ -1,6 +1,9 @@
 /* eslint-disable max-len */
 <template>
-  <div class="card is-relative is-clipped">
+  <div>
+    {{movie}}
+  </div>
+  <!-- <div class="card is-relative is-clipped">
     <img
       class="movie-poster"
       :src="replaceImage"
@@ -15,10 +18,10 @@
           <p class="movie-plot is-size-6 has-text-weight-normal">{{movie.Plot}}</p>
           <p class="movie-director is-size6 has-text-weight-normal">Directed by {{movie.Director}}</p>
         </div>
-        <p class="movie-rating is-size-6 has-text-centered"><span>{{movie.imdbRating}}</span> score with <span>{{movie.imdbVotes}}</span> votes</p>
+        <p class="movie-rating is-size-6 has-text-centered"><span>{{movie.Rating}}</span> score with <span>{{movie.Votes}}</span> votes</p>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
