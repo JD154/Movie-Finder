@@ -16,21 +16,23 @@ app.use(cors());
 
 app.post('/findmovie', async (req, res) => {
   console.log(req.body.query);
-  let apiResponse;
-  let errors;
-
   await axios.get(`https://www.omdbapi.com/?t=${req.body.query}&apikey=79fcb6d0`)
     .then((response) => {
-      apiResponse = response.data;
+      const apiResponse = response.data;
       console.log(apiResponse);
-    })
-    .catch((e) => {
-      errors = e.message;
-    })
-    .finally(() => {
       res.send(
         [{
+          status: true,
           movie: apiResponse,
+        }],
+      );
+    })
+    .catch((e) => {
+      const error = e.message;
+      res.send(
+        [{
+          status: false,
+          error,
         }],
       );
     });
