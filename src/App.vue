@@ -6,9 +6,7 @@
         <div class="columns">
           <div class="column is-6 is-offset-3">
             <Search
-              :movie="movies"
               @changeMovies="changeMovies($event)"
-              :api="APIKEY"
             />
           </div>
         </div>
@@ -53,7 +51,6 @@ export default {
   },
   data() {
     return {
-      APIKEY: '79fcb6d0',
       appName: 'Movie Finder',
       movies: [],
     };
@@ -68,20 +65,16 @@ export default {
 </script>
 
 <style lang="scss">
-
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700&display=swap');
-
 body {
   position: relative;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html, body {
   height: 100%;
 }
-
 #app {
   font-family: 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -96,11 +89,9 @@ html, body {
   min-height: 100vh;
   flex-direction: column;
 }
-
 main {
   flex: 1;
 }
-
 .has-shadow-dp2 {
   box-shadow: 0 2px 5px 0 rgba($color: #000000, $alpha: 0.1);
 }
