@@ -14,8 +14,8 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
 
+console.log(process.env);
 app.post('/api', async (req, res) => {
-  console.log(req.body.query);
   await axios.get(`https://www.omdbapi.com/?t=${req.body.query}&apikey=79fcb6d0`)
     .then((response) => {
       const apiResponse = response.data;
