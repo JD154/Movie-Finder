@@ -18,7 +18,7 @@ app.use(cors({
 
 app.post('/api', async (req, res) => {
   console.log(req.body.query);
-  await axios.get(`https://www.omdbapi.com/?t=${req.body.query}&apikey=79fcb6d0`)
+  await axios.get(`http://www.omdbapi.com/?t=${req.body.query}&apikey=79fcb6d0`)
     .then((response) => {
       const apiResponse = response.data;
       console.log(apiResponse);
