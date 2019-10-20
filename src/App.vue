@@ -6,7 +6,6 @@
         <div class="columns">
           <div class="column is-6 is-offset-3">
             <Search
-              :movie="movies"
               @changeMovies="changeMovies($event)"
             />
           </div>
@@ -52,7 +51,6 @@ export default {
   },
   data() {
     return {
-      APIKEY: '79fcb6d0',
       appName: 'Movie Finder',
       movies: [],
     };
@@ -60,7 +58,6 @@ export default {
   methods: {
     changeMovies(e) {
       this.movies.push(e);
-      console.log(this.movies);
       this.searchDone = true;
     },
   },
