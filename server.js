@@ -12,7 +12,9 @@ app.use(serveStatic(`${__dirname}/dist`));
 // middlewares
 app.use(morgan('combined'));
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  origin: '*',
+}));
 
 app.post('/api', async (req, res) => {
   console.log(req.body.query);
