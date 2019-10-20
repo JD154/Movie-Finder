@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const express = require('express');
 const serveStatic = require('serve-static');
 const bodyParser = require('body-parser');
@@ -13,12 +14,12 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.post('/findmovie', (req, res) => {
+app.post('/findmovie', async (req, res) => {
   console.log(req.body.query);
   let apiResponse;
   let errors;
 
-  axios.get(`https://www.omdbapi.com/?t=${req.body.query}&apikey=79fcb6d0`)
+  await axios.get(`https://www.omdbapi.com/?t=${req.body.query}&apikey=79fcb6d0`)
     .then((response) => {
       apiResponse = response.data;
       console.log(apiResponse);

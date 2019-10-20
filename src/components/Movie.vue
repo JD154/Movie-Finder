@@ -1,9 +1,6 @@
 /* eslint-disable max-len */
 <template>
-  <div>
-    {{movie}}
-  </div>
-  <!-- <div class="card is-relative is-clipped">
+  <div class="card is-relative is-clipped">
     <img
       class="movie-poster"
       :src="replaceImage"
@@ -12,34 +9,42 @@
     <div class="card-overlay">
       <div class="card-content is-flex">
         <div class="upper-content">
-          <p class="movie-date is-size-7 has-text-left has-text-weight-light">Released on {{movie.Released}}</p>
-          <h1 class="movie-title is-size-3 has-text-weight-bold is-uppercase">{{movie.Title}}</h1>
-          <p class="movie-genre is-size-6 has-text-weight-light">{{movie.Genre}}</p>
-          <p class="movie-plot is-size-6 has-text-weight-normal">{{movie.Plot}}</p>
-          <p class="movie-director is-size6 has-text-weight-normal">Directed by {{movie.Director}}</p>
+          <p class="movie-date is-size-7 has-text-left has-text-weight-light">Released on {{jsonHelper('Released')}}</p>
+          <h1 class="movie-title is-size-3 has-text-weight-bold is-uppercase">{{jsonHelper('Title')}}</h1>
+          <p class="movie-genre is-size-6 has-text-weight-light">{{jsonHelper('Genre')}}</p>
+          <p class="movie-plot is-size-6 has-text-weight-normal">{{jsonHelper('Plot')}}</p>
+          <p class="movie-director is-size6 has-text-weight-normal">Directed by {{jsonHelper('Director')}}</p>
         </div>
-        <p class="movie-rating is-size-6 has-text-centered"><span>{{movie.Rating}}</span> score with <span>{{movie.Votes}}</span> votes</p>
+        <p class="movie-rating is-size-6 has-text-centered"><span>{{jsonHelper('imdbRating')}}</span> score with <span>{{jsonHelper('imdbVotes')}}</span> votes</p>
       </div>
     </div>
-  </div> -->
+  </div>
 </template>
 
 <script>
+import jsonq from '../../node_modules/jsonq';
+
 export default {
   name: 'Movie',
-  props: ['movie'],
+  props: {
+    movie: Array,
+  },
   data() {
     return {
+      jsonQobj: jsonq(this.movie),
       placeholderImage: 'https://www.gardensbythebay.com.sg/etc/designs/gbb/clientlibs/images/common/not_found.jpg',
     };
   },
   methods: {
-
+    jsonHelper(name) {
+      const finder = this.jsonQobj.find(name).firstElm();
+      return finder;
+    },
   },
   computed: {
     replaceImage() {
       let image = '';
-      image = this.movie.Poster === 'N/A' ? this.placeholderImage : this.movie.Poster;
+      image = this.jsonHelper('Poster') === 'N/A' ? this.placeholderImage : this.jsonHelper('Poster');
       return image;
     },
   },

@@ -45,8 +45,9 @@ export default {
     async searchMovie() {
       this.apiResponse = await FindService.findMovie({
         query: this.movieQuery,
-      });
+      }, this.isSearching = true);
       this.$emit('changeMovies', this.apiResponse.data);
+      this.isSearching = false;
     },
   },
   computed: {
