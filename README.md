@@ -6,28 +6,6 @@ Movie Finder is a Vue and Node based application that uses [Omdb API](http://www
 
 [Try now!](https://moviefinder-vue.herokuapp.com/)
 
-## Running local
-
-You will be able to run locally with those simple commands.
-
-Install npm modules
-
-```
-npm install
-```
-
-Run server
-
-```
-npm run server
-```
-
-And finally run frontend
-
-```
-npm run serve
-```
-You need to keep alive server and frontend jobs in order to make searches.
 
 ## Built with
 
@@ -53,6 +31,29 @@ I made this project in order to know how connect Vue.js frontend with Node.js se
 * Error manipulation from server.
 * Async and Await javascript functions.
 * Deploy repo to heroku with auto-build in deploy.
+
+## Running local
+
+You will be able to run locally with those simple commands.
+
+Install npm modules
+
+```
+npm install
+```
+
+Run server
+
+```
+npm run server
+```
+
+And finally run frontend
+
+```
+npm run serve
+```
+You need to keep alive server and frontend jobs in order to make searches.
 
 ## License
 
