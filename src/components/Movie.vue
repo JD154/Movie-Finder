@@ -10,31 +10,44 @@
       <div class="card-content is-flex">
         <div class="upper-content">
           <p class="movie-date is-size-7 has-text-left has-text-weight-light">Released on {{movie.Released}}</p>
-          <h1 class="movie-title is-size-4 has-text-weight-bold is-uppercase">{{movie.Title}}</h1>
+          <h1 class="movie-title is-size-5 has-text-weight-bold is-uppercase">{{movie.Title}}</h1>
           <p class="movie-genre is-size-6 has-text-weight-light">{{movie.Genre}}</p>
           <p class="movie-plot is-size-6 has-text-weight-normal">{{movie.Plot}}</p>
           <p class="movie-director is-size6 has-text-weight-normal">Directed by {{movie.Director}}</p>
         </div>
         <p class="movie-rating is-size-6 has-text-centered"><span>{{movie.imdbRating}}</span> score with <span>{{movie.imdbVotes}}</span> votes</p>
+        <button class="button is-light modal-trigger" @click="modalTrigger">View more</button>
       </div>
     </div>
+    <Modal :movie="movie" @closeModal="closeModal($event)" v-if="modalIsOpen"></Modal>
   </div>
 </template>
 
 <script>
+import Modal from './Modal.vue';
 
 export default {
   name: 'Movie',
+  components: {
+    Modal,
+  },
   props: {
     movie: Object,
   },
   data() {
     return {
       placeholderImage: 'https://www.gardensbythebay.com.sg/etc/designs/gbb/clientlibs/images/common/not_found.jpg',
+      modalIsOpen: false,
     };
   },
   methods: {
+    modalTrigger() {
+      this.modalIsOpen = !this.modalIsOpen;
+    },
 
+    closeModal(e) {
+      this.modalIsOpen = e;
+    },
   },
   computed: {
     // Check if poster in movie is empty to replace with default placeholder
@@ -48,7 +61,7 @@ export default {
 
 <style lang="scss" scoped>
   .card {
-    color: white;
+    /* color: white; */
     margin: 15px;
     height: 506px;
     border-radius: 6px;
@@ -66,9 +79,9 @@ export default {
     bottom: 0;
     left: 0;
     right: 0;
-    /* background-color: rgba($color: #14339d, $alpha: 0.9); */
-    background: #7474BF;
-    background: linear-gradient(to top, #348AC7, #7474BF);
+    background-color: rgba($color: #ffffff, $alpha: 0.9);
+    /* background: #7474BF;
+    background: linear-gradient(to top, #348AC7, #7474BF); */
     overflow: hidden;
     width: 100%;
     height: 100%;
@@ -101,6 +114,7 @@ export default {
   }
 
   .movie-title {
+    color: #348AC7 ;
     margin-bottom: 5px;
   }
 
@@ -111,11 +125,16 @@ export default {
   .movie-plot {
     margin-bottom: 15px;
   }
+
   .movie-rating {
 
     span {
       font-weight: 700;
       color: #F0737A;
     }
+  }
+
+  .modal-trigger{
+    margin-top: 15px;
   }
 </style>
