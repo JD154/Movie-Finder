@@ -2,7 +2,7 @@
   <footer class="footer has-shadow-dp2" id="app-footer">
   <div class="content has-text-centered">
     <p>
-      <strong>{{title}}</strong> is created by <a href="https://github.com/JD154/Movie-Finder">Jesus Blanco</a>.</a>
+      <strong>{{title}}</strong> is created by <a href="https://github.com/JD154/Movie-Finder">Jesus Blanco</a>
     </p>
   </div>
 </footer>
