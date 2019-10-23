@@ -4,14 +4,14 @@
     <main>
       <div class="section section-padding-medium">
         <div class="columns">
-          <div class="column is-6 is-offset-3">
+          <div class="column is-4 is-offset-4">
             <Search
               @changeMovies="changeMovies($event)"
             />
           </div>
         </div>
       </div>
-      <div class="section section-padding-medium">
+      <div class="section section-padding-medium flex-grow">
         <div class="container">
           <div class="columns is-multiline is-desktop is-centered" v-if="movies.length > 0">
             <Movie
@@ -66,6 +66,7 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700&display=swap');
+
 body {
   position: relative;
   margin: 0;
@@ -91,6 +92,13 @@ html, body {
 }
 main {
   flex: 1;
+  display: flex !important;
+  flex-direction: column;
+}
+.flex-grow{
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
 }
 .has-shadow-dp2 {
   box-shadow: 0 2px 5px 0 rgba($color: #000000, $alpha: 0.1);
