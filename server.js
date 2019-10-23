@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const express = require('express');
 const serveStatic = require('serve-static');
 const bodyParser = require('body-parser');
@@ -14,7 +13,7 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
 
-console.log(process.env);
+// routes
 app.post('/api', async (req, res) => {
   await axios.get(`https://www.omdbapi.com/?t=${req.body.query}&apikey=79fcb6d0`)
     .then((response) => {
