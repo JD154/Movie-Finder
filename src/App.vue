@@ -100,7 +100,9 @@ main {
   align-items: center;
   flex-grow: 1;
 }
+
 .has-shadow-dp2 {
   box-shadow: 0 2px 5px 0 rgba($color: #000000, $alpha: 0.1);
 }
+
 </style>
