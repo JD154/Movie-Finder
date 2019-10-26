@@ -2,14 +2,14 @@
   <div class="container is-relative">
     <form @submit.prevent="searchMovie">
       <input
-        class="input is-medium"
+        class="input"
         v-model="movieQuery"
         type="text"
         id="movietitle"
         required
       >
       <button
-        class="button is-medium has-text-white"
+        class="button has-text-white is-outlined"
         :class="{'is-loading': isSearching}"
         type="submit"
         >Search now</button>
@@ -45,21 +45,23 @@ export default {
         query: this.movieQuery,
       }, this.isSearching = true);
 
-      console.log(this.apiResponse.data[0]);
+      const responseFromServer = this.apiResponse.data[0];
+
+      console.log(responseFromServer);
       this.isSearching = false;
 
       /* filter response using status, if status is true means the server made the API call sucessfully
           If server response is not true will send error message */
-      if (this.apiResponse.data[0].status) {
+      if (responseFromServer.status) {
         /* If response from server is true and movie data was found will emit movie data to parent
             Otherwise when server response is true but movie was not found will send error message */
-        if (this.apiResponse.data[0].movie.Response === 'True') {
-          this.$emit('changeMovies', this.apiResponse.data[0].movie);
+        if (responseFromServer.movie.Response === 'True') {
+          this.$emit('changeMovies', responseFromServer.movie);
         } else {
-          this.sendError(this.apiResponse.data[0].movie.Error);
+          this.sendError(responseFromServer.movie.Error);
         }
       } else {
-        this.sendError(this.apiResponse.data[0].error);
+        this.sendError(responseFromServer.error);
       }
     },
     // this function take a string as error and set timeout to leave animation

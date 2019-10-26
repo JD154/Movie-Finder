@@ -4,16 +4,6 @@
       <div class="navbar-brand">
         <h1 class="app-brand is-size-4">{{title}}</h1>
       </div>
-      <div id="navbarBasicExample" class="navbar-end">
-        <div class="navbar-start">
-          <a class="navbar-item has-text-white">
-            Search
-          </a>
-          <a class="navbar-item has-text-white">
-            My bookmarks
-          </a>
-        </div>
-      </div>
     </div>
   </nav>
 </template>
@@ -29,24 +19,19 @@ export default {
 
 <style lang="scss">
   #app-nav {
-    background-color: #73BAE1;
+    background-color: white;
+    border-bottom: 1px solid #d9d9d9;
+  }
+
+  .navbar-brand{
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .app-brand{
     align-self: center;
-    font-weight: 400;
-    color: white;
+    font-weight: 600;
   }
 
-  .navbar-item {
-    font-weight: 300px !important;
-    margin: 5px 10px;
-    background-color: none;
-
-    &:hover {
-      border-radius: 6px;
-      background-color: rgba($color: #ffffff, $alpha: 0.2) !important;
-      transition: background-color 0.150s ease;
-    }
-  }
 </style>
