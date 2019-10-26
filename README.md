@@ -54,11 +54,3 @@ And finally run frontend
 npm run serve
 ```
 You need to keep alive server and frontend jobs in order to make searches.
-
-## License
-
-[Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/)
-
-## Contributing
-
-Feel free to commit or fork! I hope my code help you somehow.
