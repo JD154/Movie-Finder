@@ -19,7 +19,7 @@
         <button class="button is-light modal-trigger" @click="modalTrigger">View more</button>
       </div>
     </div>
-    <Modal :movie="movie" @closeModal="closeModal($event)" v-if="modalIsOpen"></Modal>
+    <Modal :movie="movie" :poster="replaceImage" @closeModal="closeModal($event)" v-if="modalIsOpen"></Modal>
   </div>
 </template>
 
