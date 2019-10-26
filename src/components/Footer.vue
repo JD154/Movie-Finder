@@ -19,8 +19,8 @@ export default {
 
 <style>
   #app-footer {
-    background-color: #fafafa;
-    padding: 2rem 1.5rem;
+    background-color: white;
+    padding: 1rem 1.5rem;
     border-top: 1px solid #d9d9d9;
   }
 </style>
